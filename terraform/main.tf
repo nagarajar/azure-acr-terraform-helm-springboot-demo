@@ -1,11 +1,10 @@
 provider "azurerm" {
   # Configuration options
   features {}
-
 }
 # Create a Resource Group if it doesn’t exist
-resource "azurerm_resource_group" "tfexample" {
-  name     = "azure-resource-group" # Replace with your resource group name
+data "azurerm_resource_group" "tfexample" {
+  name     = "my-resource-group" # Replace with your resource group name
   location = "South India"
 }
 
@@ -53,7 +52,7 @@ resource "azurerm_resource_group" "tfexample" {
 # Terraform Backend Configuration
 terraform {
   backend "azurerm" {
-    resource_group_name  = "azure-resource-group"
+    resource_group_name  = "my-resource-group"
     storage_account_name = "nagarajarstorageaccount"
     container_name       = "my-terraform-state-container"
     key                  = "terraform.terraform_state"
