@@ -5,7 +5,7 @@ provider "azurerm" {
 # Create a Resource Group if it doesn’t exist
 data "azurerm_resource_group" "tfexample" {
   name     = "my-resource-group" # Replace with your resource group name
-  location = "South India"
+#   location = "South India"
 }
 
 # Create a Storage account
