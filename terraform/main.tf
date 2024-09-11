@@ -4,8 +4,8 @@ provider "azurerm" {
 }
 # Create a Resource Group if it doesn’t exist
 data "azurerm_resource_group" "tfexample" {
-  name     = "my-resource-group" # Replace with your resource group name
-#   location = "South India"
+  name = "my-resource-group" # Replace with your resource group name
+  #   location = "South India"
 }
 
 # Create a Storage account
@@ -62,7 +62,7 @@ terraform {
 # Reference to the existing Azure Container Registry
 data "azurerm_container_registry" "acr" {
   name                = "nagarajaracrregistry"
-  resource_group_name = azurerm_resource_group.tfexample.name
+  resource_group_name = "my-resource-group"
 }
 
 # Reference the existing Azure Container Group (ACI)
