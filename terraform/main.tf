@@ -1,6 +1,7 @@
 provider "azurerm" {
   # Configuration options
   features {}
+
 }
 # Create a Resource Group if it doesn’t exist
 resource "azurerm_resource_group" "tfexample" {
@@ -61,15 +62,15 @@ terraform {
 
 # Reference to the existing Azure Container Registry
 data "azurerm_container_registry" "acr" {
-  name                = azurerm_storage_container.terraform_state.name # Replace with your ACR name
+  name                = "nagarajaracrregistry"
   resource_group_name = azurerm_resource_group.tfexample.name
 }
 
 # Reference the existing Azure Container Group (ACI)
-data "azurerm_container_group" "myapp" {
-  name                = "my-container-group"
-  resource_group_name = azurerm_resource_group.tfexample.name
-}
+# data "azurerm_container_group" "myapp" {
+#   name                = "my-container-group"
+#   resource_group_name = azurerm_resource_group.tfexample.name
+# }
 
 #output "kube_config" {
 #  value = azurerm_kubernetes_cluster.aks.kube_config_raw
