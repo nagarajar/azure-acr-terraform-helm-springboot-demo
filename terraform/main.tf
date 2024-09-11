@@ -1,6 +1,7 @@
 # Create a Resource Group if it doesn’t exist
 resource "azurerm_resource_group" "tfexample" {
   name     = "my-resource-group" # Replace with your resource group name
+  location = "South India"
 }
 
 # Create a Storage account
@@ -43,6 +44,16 @@ resource "azurerm_storage_container" "terraform_state" {
 #     network_plugin = "azure"
 #   }
 # }
+
+# Terraform Backend Configuration
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "my-resource-group"
+    storage_account_name = "mytfstorageaccount"
+    container_name       = "my-terraform-state-container"
+    key                  = "terraform.terraform_state"
+  }
+}
 
 # Reference to the existing Azure Container Registry
 data "azurerm_container_registry" "acr" {

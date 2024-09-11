@@ -16,11 +16,11 @@ variable "acr_name" {
   default     = "mycontainerregistry"
 }
 
-variable "container_name" {
-  description = "Name of the Azure Container Instance"
-  type        = string
-  default     = "my-azure-app"
-}
+# variable "container_name" {
+#   description = "Name of the Azure Container Instance"
+#   type        = string
+#   default     = "my-azure-app"
+# }
 
 variable "image_name" {
   description = "Docker image name with tag"
